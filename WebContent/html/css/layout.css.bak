@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+html,body {
+    position: relative;
+    top:0px;
+    left:0px;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Hiragino Kaku Gothic Pro",
+    "ヒラギノ角ゴ Pro W3","メイリオ","Meiryo","ＭＳ Ｐゴシック",
+    "Arial","Verdana","sans-serif";
+    width:1300px;
+    padding-left: 20px;
+}
+
+/* title */
+#title {
+    height:60px;
+    color: rgb(80, 69, 69);
+}
+
+#title h2 {
+    font-weight: bold;
+    font-size:27px;
+    margin:0px;
+}
+
+#overview {
+    padding-left: 10px;
+}
+
+#title img {
+    position:absolute;
+    top:10px;
+    right:50px;
+    display:block;
+}
+
+/*contents*/
+div.contents h4 {
+    color: white;
+    font-size: 16px;
+    background-color: rgb(57, 59, 61);
+}
+
+div.contents label{
+    display:block;
+    /*width:200px;*/
+}
+
+div#map img {
+    width: 50px;
+    height: 50px;
+}
+
+table#tilemap {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table#tilemap tr, td {
+    border: 0px;
+    width:30px;
+    height:30px;
+}
+
+
+.element {
+    padding-left: 10px;
+}
+
+.element p {
+    margin:0px;
+}
+
+table#naming_rule {
+    width:100%;
+    border: 1px solid black;
+    border-collapse:collapse;
+}
+
+table#naming_rule th{
+    border: 1px solid black;
+    background-color: rgb(111, 105, 116);
+    color:white;
+}
+
+table#naming_rule td{
+    text-align: left;
+    border: 1px solid dimgray;
+    vertical-align: middle;
+}
+
+
+/* footer */
+footer {
+    height:30px;
+    border-top: 1px solid rgb(16, 16, 19);
+    font-size: 12px;
+}
+
+div#copyright{
+    padding-top: 5px;
+}
+
+
+#flist ul {
+    padding: 0;
+    list-style: none;
+}
+
+#flist input[type="button"] {
+    background-color: rgb(95, 82, 84);
+    color: rgb(224,240,240);
+    border: 1px solid dimgray;
+    border-radius: 1px;
+    /*font-weight: bold;*/
+    font-size: 14pt;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.4);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.9);
+    margin-bottom:10px;
+}
+
+#flist input[type="button"]:hover {
+    background-color: rgb(117, 98, 100);
+    color: rgb(224,240,240);
+    cursor: pointer;
+}
+
+
+/*error */
+#space {
+    height:100px;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="eu" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <meta http-equiv="content-script-type" content="text/javascript">
+    <title>ALOS-2 ARD catalog</title>
+    <link rel="stylesheet" type="text/css" href="./css/layout.css">
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+<script>
+    //***************************
+    //need setting
+    //"IDN","KHM","LAO","MMR","PHL","THA","VNM"
+    const region = "THA"
+    //**************************
+</script>
+
+
+<div id="title">
+    <h2>ALOS-2 ARD Catalog Page For {{region}}</h2>
+    <div id="overview">You can search for ALOS-2 ARD files</div>
+    <img src="./img/JAXA_logo.png" width="130" border="0px">
+</div>
+
+<div class="contents">
+
+    <h4>Geographic Region</h4>
+    <div id="map">
+        <table id="tilemap">
+            <tr v-for="line in lines">
+                <td v-for="tile in line.pixel" >
+                    <img :src="tile.name" :style="styles" @click="sendQuery(tile.action)" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h4>Data Description</h4>
+    <div class="element">
+        <p>Original SAR data: PALSAR-2 ScanSAR (Dual Pol.)</p>
+        <p>DEM for processing: SRTM-1 </p>
+        <p>Datum+Ellipsoid: ITRF97 + GRS80</p>
+        <p>Size of one pixel: 1.6 arcsec (approx. 50m)</p>
+    </div>
+
+    <h4>File Naming Rule</h4>
+    <div class="element">
+        <table id = "naming_rule">
+            <tr>
+                <th>Datalist</th>
+                <th>File name</th>
+                <th>Format Data type</th>
+            </tr>
+            <tr>
+                <td>Backscattering cofficient (HH pol)</td>
+                <td>LLLLLLL_YYMMDD_sl_HH.tif</td>
+                <td>GeoTiff 16bit-unsigned</td>
+            </tr>
+            <tr>
+                <td>Backscattering cofficient (HV pol)</td>
+                <td>LLLLLLL_YYMMDD_sl_HV.tif</td>
+                <td>GeoTiff 16bit-unsigned</td>
+            </tr>
+            <tr>
+                <td>Local incidence angle</td>
+                <td>LLLLLLL_YYMMDD_linci.tif</td>
+                <td>GeoTiff 8bit -unsigned</td>
+            </tr>
+            <tr>
+                <td>Processing mask information</td>
+                <td>LLLLLLL_YYMMDD_MASK.tif</td>
+                <td>GeoTiff 8bit -unsigned</td>
+            </tr>
+            <tr>
+                <td>catalog file</td>
+                <td>LLLLLLL_YYMMDD.json</td>
+                <td>json ascii</td>
+            </tr>
+        </table>
+        <ul>
+            <li>LLLLLLL: latitude/longitude of the upper left corner of the tile</li>
+            e.g. latitude 0 degree north, longitude 100 degrees east: LLLLLLL = "N00E100"
+            <li>YYMMDD: observation year + month + date of the original SAR image</li>
+            e.g., 2017-Jan-1st : YYMMDD = "170101"
+        </ul>
+    </div>
+
+</div>
+
+<footer>
+    <div id="copyright">
+    Copyright&copy; Japan Aerospace Exploration Agency, Earth Observation Research Center All rights reserved.
+    </div>
+</footer>
+
+<script src="js/showtiles.js"></script>
+</body>
+</html>
